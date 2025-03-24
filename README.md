@@ -2,8 +2,6 @@
 
 A Python-based ransomware simulation tool that demonstrates file encryption and decryption using AES encryption, SHA-256 file integrity checks, and a custom Tkinter GUI styled with the Forest Light theme. **This project is for educational and demonstration purposes only.**
 
----
-
 ## Table of Contents
 
 - [Overview](#overview)
@@ -15,7 +13,6 @@ A Python-based ransomware simulation tool that demonstrates file encryption and 
 - [How It Works](#how-it-works)
 - [License](#license)
 
----
 
 ## Overview
 
@@ -27,7 +24,6 @@ This project simulates ransomware behavior by:
 - Verifying file integrity using SHA-256 hashes.
 - Providing a user-friendly GUI built with Tkinter, featuring a custom Forest Light theme.
 
----
 
 ## Features
 
@@ -38,7 +34,7 @@ This project simulates ransomware behavior by:
 - **Custom GUI with Theme**: A Tkinter-based GUI styled with the Forest Light theme.
 - **File Preview Popup**: A feature to preview file contents (e.g., the ransom note).
 
----
+
 
 ## Technologies Used
 
@@ -48,9 +44,6 @@ This project simulates ransomware behavior by:
 - **hashlib** for SHA-256 hash computation
 - **Tcl/Tk** for applying the custom Forest Light theme
 
----
-
----
 
 ## Installation
 
@@ -121,7 +114,7 @@ python3 -m src.gui
   - Opens a popup displaying the contents of a file
   - Helpful for inspecting the ransom note or checking restored files
 
----
+
 
 ## How It Works
 
@@ -145,7 +138,7 @@ python3 -m src.gui
 - After decryption, a new SHA-256 hash is computed.
 - If the two hashes match, the file has been restored correctly.
 
----
+
 
 ## Theme Integration
 
@@ -160,14 +153,13 @@ python3 -m src.gui
   ttk.Style().theme_use('forest-light')
   ```
 
----
+
 
 ## License
 
 This project is licensed under the **MIT License**.  
 You are free to use, modify, and distribute this project, provided the license file is included.
 
----
 
 ## Disclaimer
 
